@@ -1,42 +1,65 @@
-![glaze image](https://raw.githubusercontent.com/dnnsjsk/glaze/main/image.png)
+<p align="center">
+  <a href="https://glaze.dev">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/inline0/glaze/main/.github/logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/inline0/glaze/main/.github/logo-light.svg">
+      <img alt="Glaze" src="https://raw.githubusercontent.com/inline0/glaze/main/.github/logo-light.svg" width="280">
+    </picture>
+  </a>
+</p>
 
-Glaze is an animation framework that combines the power of
-[GSAP](https://greensock.com/gsap/) and utility-based document authoring à la
-[Tailwind](https://tailwindcss.com) to create a simple, yet powerful, way to
-compose declarative animations for the web.
+<p align="center">
+  Utility-first animations for GSAP with a Tailwind-style syntax
+</p>
 
-```html copy
+<p align="center">
+  <img alt="Glaze preview" src="https://raw.githubusercontent.com/inline0/glaze/main/image.png" width="860">
+</p>
+
+---
+
+Compose declarative animations with a tiny, readable API that feels like writing utilities.
+
+## Features
+
+- **Breakpoints** - animate at custom screen sizes with `@{size}` syntax
+- **Timelines** - compose sequences using `@tl`
+- **Dot Notation** - control nested properties in a single token
+- **Lightweight** - small runtime footprint
+- **Framework Agnostic** - works with any setup that can run GSAP
+
+## Quick Start
+
+```bash
+bun add glazejs gsap
+# or
+npm install glazejs gsap
+```
+
+```html
 <div
   class="invisible h-20 w-20 rounded-xl bg-amber-500"
   data-animate="@sm:from:duration-1|autoAlpha-0|rotate-180|y-50|ease-power2.inOut"
 ></div>
 ```
 
-## Features
+## Documentation
 
-- **Breakpoints** Define custom breakpoints and animate elements at different
-  screen sizes using `@{size}` syntax. Uses GSAPs
-  [matchMedia](<https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/>).
-- **Timelines** Compose timelines using `@tl`.
-- **Dot notation** Use dot notation to control nested properties inside the
-  animation object, e.g. `to:scale-1.5|scrollTrigger.trigger-[&]`.
-- **Lightweight** ~3kb minified and gzipped.
-- **Library agnostic** Can be extended to work with other animation libraries.
-  (coming soon)
+Visit `https://glaze.dev` for full docs and examples.
 
-## Credits
+## Development
 
-The API and syntax of Glaze is heavily inspired by [Tailwind](https://tailwindcss.com)
-and [MasterCSS](https://css.master.co/).
+```bash
+bun install
+bun run dev:docs
+bun run test
+```
 
-## Licensing and Requirements
+## GSAP License
 
-Glaze is designed to work seamlessly with [GSAP](https://greensock.com/gsap/). To use
-Glaze, you must include GSAP in your project.
+Glaze relies on GSAP. Review the GSAP Standard License before shipping:
+`https://gsap.com/community/standard-license/`
 
-### GSAP Licensing
+## License
 
-GSAP is subject to its own licensing terms. Before incorporating GSAP with Glaze, ensure you review and comply with
-the [GSAP Standard License](https://gsap.com/community/standard-license/).
-
-Glaze itself is licensed under the MIT License. For more details, see the LICENSE file in the repository.
+MIT

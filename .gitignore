@@ -1,6 +1,7 @@
 # dependencies
 /node_modules
 **/node_modules
+.bun/
 
 # misc
 .DS_Store
@@ -10,4 +11,7 @@
 
 .next
 .turbo
+.output
+.source
+.tanstack
 test-results

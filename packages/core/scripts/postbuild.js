@@ -23,7 +23,7 @@ minifyFile("./dist/index.es.js");
   },
   {
     from: path.join(__dirname, "../../../CHANGELOG.md"),
-    to: path.join(__dirname, "../../../docs/pages/documentation/changelog.mdx"),
+    to: path.join(__dirname, "../../../apps/docs/content/docs/changelog.mdx"),
   },
 ].forEach(({ from, to }) => {
   fs.copyFile(from, to, (err) => {

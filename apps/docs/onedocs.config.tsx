@@ -55,7 +55,7 @@ export default defineConfig({
       },
       {
         title: "Timeline Ready",
-        description: "Sequence or parallelize motion with timeline utilities.",
+        description: "Sequence or parallelize motion with timeline utilities. Chain animations with precise control over timing and order.",
         icon: <Timer className={iconClass} />,
       },
       {
@@ -65,12 +65,12 @@ export default defineConfig({
       },
       {
         title: "Composable",
-        description: "Layer presets and overrides without fighting configs.",
+        description: "Layer presets and overrides without fighting configs. Build complex animations from simple, reusable pieces.",
         icon: <Layers className={iconClass} />,
       },
       {
         title: "Lightweight",
-        description: "Tiny runtime footprint with minimal overhead.",
+        description: "Tiny runtime footprint with minimal overhead. Ships only what you need for smooth, performant animations.",
         icon: <Feather className={iconClass} />,
       },
       {

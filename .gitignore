@@ -12,6 +12,7 @@
 .next
 .turbo
 .output
+!apps/docs/.output
 .source
 .tanstack
 test-results

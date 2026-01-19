@@ -13,7 +13,11 @@ export default defineConfig({
     tsconfigPaths(),
     tailwindcss(),
     nitro(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        
+      },
+    }),
     react(),
   ],
   resolve: {

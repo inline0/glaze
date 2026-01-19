@@ -10,8 +10,8 @@ import {
   Layers,
 } from "lucide-react";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
-import Hero from "./components/Hero";
-import HeroCode from "./components/HeroCode.mdx";
+import Hero from "./components/hero";
+import HeroCode from "./components/hero-code.mdx";
 
 const iconClass = "h-5 w-5 text-fd-primary";
 

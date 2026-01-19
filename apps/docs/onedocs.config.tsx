@@ -25,7 +25,6 @@ export default defineConfig({
   icon: "/icon.png",
   nav: {
     github: "inline0/glaze",
-    links: [{ label: "Documentation", href: "/docs" }],
   },
   homepage: {
     hero: {

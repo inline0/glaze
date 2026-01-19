@@ -1,11 +1,7 @@
 import { useEffect, useRef } from "react";
 import glaze from "glazejs";
 import gsap from "gsap";
-import { Tab, Tabs } from "fumadocs-ui/components/tabs";
-import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
-import CodeNpm from "./CodeNpm.mdx";
-import CodePnpm from "./CodePnpm.mdx";
-import CodeYarn from "./CodeYarn.mdx";
+import { InstallBlock } from "onedocs";
 
 const LetterSplitter = ({ text }: { text: string }) => {
   return text
@@ -42,29 +38,7 @@ const Hero = () => {
         <LetterSplitter text="Utility-based animations for the web." />
       </h1>
       <div className="flex flex-wrap items-end justify-between gap-4 xl:justify-start lg:gap-8">
-        <Tabs items={["npm", "yarn", "pnpm"]} defaultValue="npm" className="!w-60 !mb-0">
-          <Tab value="npm">
-            <CodeBlock>
-              <Pre>
-                <CodeNpm />
-              </Pre>
-            </CodeBlock>
-          </Tab>
-          <Tab value="yarn">
-            <CodeBlock>
-              <Pre>
-                <CodeYarn />
-              </Pre>
-            </CodeBlock>
-          </Tab>
-          <Tab value="pnpm">
-            <CodeBlock>
-              <Pre>
-                <CodePnpm />
-              </Pre>
-            </CodeBlock>
-          </Tab>
-        </Tabs>
+        <InstallBlock packageName="glazejs" />
         <a href="/docs" className="h-max rounded-full bg-fd-primary px-4 py-2 text-black">
           Go to docs
         </a>

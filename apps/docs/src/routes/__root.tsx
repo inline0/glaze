@@ -8,8 +8,6 @@ import {
 import "../app.css";
 import config from "../../onedocs.config";
 
-const socialCard = "https://glaze.dev/og.jpg";
-
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -24,17 +22,10 @@ export const Route = createRootRoute({
         name: "og:description",
         content: "The utility-based animation framework for the web.",
       },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: socialCard },
-      { name: "twitter:site:domain", content: "glaze.dev" },
-      { name: "twitter:url", content: "https://glaze.dev" },
-      { name: "og:image", content: socialCard },
       { name: "apple-mobile-web-app-title", content: "Glaze" },
     ],
     links: [
       { rel: "icon", href: config.icon ?? "/icon.png" },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootDocument,

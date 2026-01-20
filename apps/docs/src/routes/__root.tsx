@@ -1,4 +1,4 @@
-import { RootLayout } from "onedocs";
+import { RootLayout, FontHead } from "onedocs";
 import {
   createRootRoute,
   HeadContent,
@@ -45,6 +45,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <FontHead />
         <style
           dangerouslySetInnerHTML={{
             __html: `:root{--color-fd-border:hsla(0,0%,80%,50%);--color-fd-primary:hsl(0,0%,9%)}.dark{--color-fd-border:hsla(0,0%,40%,20%);--color-fd-primary:hsl(0,0%,98%)}@media(prefers-color-scheme:dark){:root:not(.light){--color-fd-border:hsla(0,0%,40%,20%);--color-fd-primary:hsl(0,0%,98%)}}@layer base{*,::before,::after{border-color:var(--color-fd-border)}}`,

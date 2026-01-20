@@ -27,7 +27,7 @@
         "gsap": "^3.12.5",
         "lucide-react": "^0.562.0",
         "nitro": "npm:nitro-nightly@latest",
-        "onedocs": "0.1.11",
+        "onedocs": "0.1.12",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
         "tailwindcss": "^4.1.18",
@@ -1912,6 +1912,8 @@
     "zwitch": ["zwitch@2.0.4", "", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
 
     "@babel/helper-compilation-targets/lru-cache": ["lru-cache@5.1.1", "", { "dependencies": { "yallist": "^3.0.2" } }, "sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w=="],
+
+    "@glaze/docs/onedocs": ["onedocs@0.1.12", "", { "peerDependencies": { "@tanstack/react-router": "^1.0.0", "@tanstack/start": "^1.0.0", "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-j4pwuFueRp0f2AsMz+ZRFALZOC1dph17NAXUxOWiQa5VC+Xca61gXB43HvyJzjr9A7P8FhNZbCvN2TEm/Rwlcg=="],
 
     "@mapbox/node-pre-gyp/semver": ["semver@7.7.3", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q=="],
 

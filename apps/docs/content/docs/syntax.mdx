@@ -49,7 +49,7 @@ After the state, list your animation properties separated by pipes (`|`):
 <div data-animate="to:opacity-1|yPercent-10|duration-0.5"></div>
 ```
 
-The format is `property-value`. Values are automatically converted to the right type (number, boolean, or string).
+The string is parsed by splitting at the dash (`-`), where the first part is the property name, and the second part is its value. Values are automatically converted to the right type (number, boolean, or string).
 
 ### Nested properties
 

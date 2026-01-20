@@ -1,4 +1,4 @@
-import {
+import type {
   GlazeAnimationCollection,
   GlazeAnimationObject,
   GlazeConfig,
@@ -207,8 +207,8 @@ function glaze(config: GlazeConfig) {
 
   function watch() {
     const target = state.element;
-    const observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
         const isAttribute =
           mutation.type === "attributes" &&
           mutation.attributeName === state.dataAttribute;
@@ -459,14 +459,19 @@ function glaze(config: GlazeConfig) {
       (context) => {
         const resettedIds: string[] = [];
 
-        (
-          (id
-            ? [timelines.find((timeline) => timeline.id === id)]
-            : timelines) as GlazeTimeline[]
-        )
-          .reduce((acc, obj) => new Map([...acc, ...obj.elements]), new Map())
-          .forEach((value, element) => {
-            let animationObject = {};
+        const timelinesToProcess = (id
+          ? [timelines.find((timeline) => timeline.id === id)]
+          : timelines) as GlazeTimeline[];
+
+        const allElements = new Map();
+        for (const timeline of timelinesToProcess) {
+          for (const [key, value] of timeline.elements) {
+            allElements.set(key, value);
+          }
+        }
+
+        allElements.forEach((value, element) => {
+            const animationObject = {};
 
             Object.entries(value).forEach(([key, value]) => {
               if (context.conditions?.[key]) {
@@ -494,14 +499,17 @@ function glaze(config: GlazeConfig) {
 
             if (
               !timeline.timeline.scrollTrigger ||
-              (timeline.timeline.scrollTrigger &&
-                timeline.timeline.scrollTrigger.isActive)
+              timeline.timeline.scrollTrigger?.isActive
             ) {
               timeline.timeline.restart();
             }
           });
 
-        return () => timelines.forEach((timeline) => reset(timeline));
+        return () => {
+          for (const timeline of timelines) {
+            reset(timeline);
+          }
+        };
       },
     );
   }

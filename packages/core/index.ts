@@ -37,9 +37,7 @@ for (const [element] of tlFirst.elements) {
   }, 1000);
 }
 
-let indexLast = 0;
 for (const [element] of tlLast.elements) {
-  indexLast++;
   if (!element) continue;
 
   setTimeout(() => {

@@ -11,7 +11,7 @@ const LetterSplitter = ({ text }: { text: string }) => {
     .split(" ")
     .map((word: string, wordIndex: number, arr: string | string[]) => (
       <span
-        key={wordIndex}
+        key={`word-${word}`}
         className="relative inline-block overflow-hidden pb-1"
       >
         <span className="inline-block translate-y-full">

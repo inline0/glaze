@@ -18,7 +18,7 @@ function castValue(
 
   if (cleanedValue === "true" || cleanedValue === "false") {
     return cleanedValue === "true";
-  } else if (!isNaN(Number(cleanedValue))) {
+  } else if (!Number.isNaN(Number(cleanedValue))) {
     return cleanedValue.includes(".")
       ? parseFloat(cleanedValue)
       : parseInt(cleanedValue, 10);

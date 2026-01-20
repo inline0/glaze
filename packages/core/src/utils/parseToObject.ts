@@ -28,7 +28,7 @@ function parseToObject(input: string, isTimeline = false, element: Element) {
 
     if (rootKey === "tl" && propertiesString.startsWith("[")) {
       result.tl = {
-        value: getSelectorFromBracket(propertiesString + ":")?.content,
+        value: getSelectorFromBracket(`${propertiesString}:`)?.content,
       };
       return;
     }

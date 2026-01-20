@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import getSelectorOrElement from "../../../src/utils/getSelectorOrElement";
-import { GlazeAnimationObject } from "@/types.ts";
+import type { GlazeAnimationObject } from "@/types.ts";
 
 describe("getSelectorOrElement", () => {
   let container: HTMLElement;

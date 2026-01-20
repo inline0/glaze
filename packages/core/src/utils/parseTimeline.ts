@@ -1,4 +1,4 @@
-import { GlazeConfig } from "@/types.ts";
+import type { GlazeConfig } from "@/types.ts";
 
 function parseTimeline(
   input: string,

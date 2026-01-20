@@ -89,7 +89,7 @@ describe("glaze", () => {
   });
 
   it("throws an error if GSAP is not provided", () => {
-    // @ts-ignore
+    // @ts-expect-error - Testing error when GSAP is not provided
     expect(() => glaze()).toThrow("GSAP not found");
   });
 
@@ -111,9 +111,7 @@ describe("glaze", () => {
 
   it("returns correct elements", () => {
     expect(
-      glazeInstance.timelines
-        .map((tl) => Array.from(tl.elements.keys()))
-        .flat(),
+      glazeInstance.timelines.flatMap((tl) => Array.from(tl.elements.keys())),
     ).toHaveLength(12);
   });
 

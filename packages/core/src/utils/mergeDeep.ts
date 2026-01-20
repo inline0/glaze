@@ -1,4 +1,4 @@
-import { PlainObject } from "@/types.ts";
+import type { PlainObject } from "@/types.ts";
 import isObject from "./isObject.ts";
 
 function mergeDeep(

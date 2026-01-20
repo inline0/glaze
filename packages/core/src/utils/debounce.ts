@@ -4,7 +4,7 @@ function debounce<T extends (...args: any[]) => void>(
 ): T {
   let timeoutId: number | null = null;
 
-  return function (...args: Parameters<T>): void {
+  return ((...args: Parameters<T>): void => {
     if (timeoutId !== null) {
       clearTimeout(timeoutId);
     }
@@ -12,7 +12,7 @@ function debounce<T extends (...args: any[]) => void>(
     timeoutId = window.setTimeout(() => {
       func(...args);
     }, wait);
-  } as T;
+  }) as T;
 }
 
 export default debounce;

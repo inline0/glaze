@@ -1,6 +1,6 @@
-const fs = require("fs");
+const fs = require("node:fs");
 const terser = require("terser");
-const path = require("path");
+const path = require("node:path");
 
 async function minifyFile(filePath) {
   const originalCode = fs.readFileSync(filePath, "utf8");

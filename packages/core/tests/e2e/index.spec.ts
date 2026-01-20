@@ -1,4 +1,4 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect, type Page } from "@playwright/test";
 
 const goToPage = async (page: Page) => page.goto("http://localhost:5173/");
 

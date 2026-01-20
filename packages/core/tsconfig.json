@@ -25,4 +25,5 @@
     "noFallthroughCasesInSwitch": true,
     "esModuleInterop": true
   },
+  "exclude": ["vite.config.ts"]
 }

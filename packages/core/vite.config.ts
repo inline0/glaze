@@ -1,6 +1,6 @@
-import { defineConfig, ViteDevServer } from "vite";
+import { defineConfig, type ViteDevServer } from "vite";
 import dts from "vite-plugin-dts";
-import { resolve } from "path";
+import { resolve } from "node:path";
 
 const removeConsolePlugin = () => {
   return {

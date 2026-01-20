@@ -1,4 +1,4 @@
-import { GlazeAnimationObject } from "@/types.ts";
+import type { GlazeAnimationObject } from "@/types.ts";
 
 function getSelectorOrElement(
   element: Element,

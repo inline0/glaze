@@ -40,7 +40,7 @@ const Hero = ({ children }: HeroProps) => {
     <div ref={ref} className="grid gap-4">
       <h1
         data-animate="[&>span>span]:to:y-0|stagger-0.05|ease-power2.inOut|delay-0.25"
-        className="text-4xl max-w-[250px] md:text-5xl font-medium md:max-w-sm"
+        className="text-4xl max-w-[250px] max-h-[158px] md:max-h-none md:text-5xl font-medium md:max-w-sm"
       >
         <LetterSplitter text="Utility-based animations for the web" />
       </h1>

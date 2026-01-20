@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import glaze from "glazejs";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export const Example = ({ children }: { children: string }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -9,45 +13,17 @@ export const Example = ({ children }: { children: string }) => {
   useEffect(() => {
     if (!refInnerRef.current) return;
     refInnerRef.current.innerHTML = children;
-
-    let cancelled = false;
-
-    async function run() {
-      const [{ default: glaze }, gsapModule, scrollTriggerModule] =
-        await Promise.all([
-          import("glazejs"),
-          import("gsap"),
-          import("gsap/ScrollTrigger"),
-        ]);
-
-      if (cancelled) return;
-
-      const gsap = gsapModule.default ?? gsapModule;
-      const ScrollTrigger =
-        scrollTriggerModule.default ?? scrollTriggerModule.ScrollTrigger;
-
-      if (ScrollTrigger) {
-        gsap.registerPlugin(ScrollTrigger);
-      }
-
-      glaze({
-        lib: { gsap: { core: gsap } },
-        element: ref.current,
-        breakpoints: {
-          sm: "(min-width: 640px)",
-          lg: "(min-width: 1024px)",
-        },
-        presets: {
-          helicopter: "from:rotate-2160|duration-5",
-        },
-      });
-    }
-
-    run();
-
-    return () => {
-      cancelled = true;
-    };
+    glaze({
+      lib: { gsap: { core: gsap } },
+      element: ref.current,
+      breakpoints: {
+        sm: "(min-width: 640px)",
+        lg: "(min-width: 1024px)",
+      },
+      presets: {
+        helicopter: "from:rotate-2160|duration-5",
+      },
+    });
   }, [children]);
 
   return (

@@ -27,7 +27,7 @@ interface HeroProps {
 }
 
 const Hero = ({ children }: HeroProps) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+  const ref = useRef(null);
 
   useEffect(() => {
     glaze({

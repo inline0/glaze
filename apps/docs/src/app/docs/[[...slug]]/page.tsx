@@ -11,18 +11,8 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
 
-  const filePath = page.path;
-
   return (
-    <DocsPage
-      toc={page.data.toc}
-      editOnGithub={{
-        owner: "inline0",
-        repo: "glaze",
-        sha: "main",
-        path: filePath,
-      }}
-    >
+    <DocsPage toc={page.data.toc}>
       <MDX components={mdxComponents} />
     </DocsPage>
   );

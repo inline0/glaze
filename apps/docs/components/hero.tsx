@@ -44,7 +44,7 @@ const Hero = ({ children }: HeroProps) => {
       >
         <LetterSplitter text="Utility-based animations for the web" />
       </h1>
-      <div className="flex flex-wrap items-start sm:items-end gap-x-8 gap-y-4">
+      <div className="flex flex-wrap items-start gap-x-8 gap-y-4">
         {children}
         <Button href="/docs">Go to docs</Button>
       </div>

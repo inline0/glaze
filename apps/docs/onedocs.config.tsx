@@ -38,7 +38,7 @@ export default defineConfig({
       ),
       right: (
         <CodeBlock className="!my-0 !shadow-sm !overflow-hidden">
-          <Pre className="!bg-fd-card lg:!p-4 lg:[&_*]:!text-sm">
+          <Pre className="!bg-fd-card lg:!h-full lg:!w-full lg:!p-4 [&_pre]:!h-full">
             <HeroCode />
           </Pre>
         </CodeBlock>

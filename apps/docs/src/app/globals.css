@@ -3,4 +3,5 @@
 @source "../**/*.tsx";
 @source "../../../content/**/*.mdx";
 @source "../../../components/**/*.tsx";
+@source "onedocs";
  

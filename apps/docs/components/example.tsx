@@ -31,7 +31,7 @@ export const Example = ({ children }: { children: string }) => {
       <div
         suppressHydrationWarning
         ref={refInnerRef}
-        className="flex h-max w-full items-center justify-center overflow-hidden bg-fd-card p-12 md:rounded-xl"
+        className="flex h-max w-full items-center justify-center overflow-hidden bg-fd-card min-h-60 p-12 md:rounded-xl"
       />
     </div>
   );

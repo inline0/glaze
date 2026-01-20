@@ -29,10 +29,12 @@ That's it. No JavaScript animation code, just a string that describes what you w
 
 ## What you get
 
-- **Responsive animations** - Use `@sm:`, `@lg:` etc. to animate differently on different screen sizes
+- **Responsive animations** - Use `@sm:`, `@lg:` etc. to animate differently at different screen sizes. Uses GSAP's [matchMedia](https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/).
 - **Timeline support** - Chain animations together with `tl`
+- **Dot notation** - Control nested properties like `scrollTrigger.trigger-[&]` or `scale.x-2`
 - **All of GSAP** - ScrollTrigger, easing, stagger, and everything else GSAP offers
 - **Tiny footprint** - ~3kb minified and gzipped
+- **Library agnostic** - Designed to work with other animation libraries in the future (coming soon)
 
 ## How it works
 
@@ -59,3 +61,7 @@ Glaze is a syntax layer on top of [GSAP](https://greensock.com/gsap/). You need 
 GSAP has its own [licensing terms](https://gsap.com/community/standard-license/) - make sure you're compliant before using it commercially.
 
 Glaze itself is MIT licensed.
+
+## Credits
+
+The API and syntax of Glaze is heavily inspired by [Tailwind](https://tailwindcss.com) and [MasterCSS](https://css.master.co/).

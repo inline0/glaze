@@ -1,33 +1,45 @@
 ---
 title: ScrollTrigger
+description: Animate on scroll
 ---
 
 import { Example } from "../../components/example";
 
 # ScrollTrigger
 
-ScrollTrigger needs to be registered with GSAP before it can be used. This can
-be done by importing it from the `gsap` package and calling `registerPlugin`
-with it.
+GSAP's [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) works seamlessly with Glaze. Just use dot notation to set ScrollTrigger options.
+
+## Setup
+
+First, register ScrollTrigger with GSAP:
 
 ```js
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 ```
 
-There is no special syntax needed to use
-[ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) with Glaze.
-Since it is defined inside the `scrollTrigger` property of the animation object,
-dot notation can be used to adjust its settings.
+Then initialize Glaze as usual.
 
-```html copy
-<div class="flex h-[50vh] items-center">
-  <div
-    class="h-20 w-20 rounded-xl bg-amber-500 sm:invisible"
-    data-animate="from:autoAlpha-0|rotate-180|y-50|scrollTrigger.trigger-[&]|boxShadow-[0_0_100px_20px_orange]|scrollTrigger.scrub-true|scrollTrigger.start-[top_center]|scrollTrigger.end-[-=200]"
-  ></div>
-</div>
+## Usage
+
+Add `scrollTrigger.*` properties to your animation:
+
+```html
+<div
+  data-animate="from:opacity-0|y-50|scrollTrigger.trigger-[&]"
+></div>
+```
+
+The `[&]` means "use this element as the trigger" (same as the `&` in selectors).
+
+## Common options
+
+```html
+<div
+  data-animate="from:opacity-0|y-50|scrollTrigger.trigger-[&]|scrollTrigger.start-[top_center]|scrollTrigger.end-[bottom_top]|scrollTrigger.scrub-true"
+></div>
 ```
 
 <Example>
@@ -42,3 +54,13 @@ dot notation can be used to adjust its settings.
 </Example>
 
 <div className="h-screen" />
+
+| Option | What it does |
+|--------|--------------|
+| `scrollTrigger.trigger-[&]` | Element that triggers the animation |
+| `scrollTrigger.start-[top_center]` | When to start (element position + viewport position) |
+| `scrollTrigger.end-[bottom_top]` | When to end |
+| `scrollTrigger.scrub-true` | Link animation progress to scroll position |
+| `scrollTrigger.markers-true` | Show debug markers (helpful during dev) |
+
+Remember to use underscores instead of spaces in values: `[top_center]` not `[top center]`.

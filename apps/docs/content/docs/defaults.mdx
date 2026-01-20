@@ -1,27 +1,60 @@
 ---
 title: Defaults
+description: Set global animation defaults
 ---
 
 # Defaults
 
-It is possible to set default values for timelines and elements using the
-`defaults` option.
+Set default animation values that apply to all elements or all timelines.
 
-```js copy
+## Setup
+
+```js
 glaze({
+  lib: { gsap: { core: gsap } },
   defaults: {
     tl: "defaults:ease-power2.inOut scrollTrigger.trigger-[&]",
-    element: "to:x-500",
+    element: "duration-1",
   },
 });
 ```
 
-Every timeline will use the `ease-power2.inOut` easing function and every
-element will move to the left by 500 pixels. On top of that, every element will
-be scrolled into view when it is being scrolled into view.
+## Timeline defaults
 
-## Note on timelines
+The `tl` default applies to every timeline:
 
-Glaze creates a new timeline for each element by default, even if not marked
-with `tl`. This means that the `tl` defaults option is perfect for applying
-global defaults to all timelines and elements. (ScrollTrigger, ease etc.)
+```js
+defaults: {
+  tl: "defaults:ease-power2.inOut scrollTrigger.trigger-[&]",
+}
+```
+
+Now every element with a timeline will automatically:
+- Use `power2.inOut` easing
+- Trigger its animation when scrolled into view
+
+## Element defaults
+
+The `element` default applies to every animated element:
+
+```js
+defaults: {
+  element: "duration-1",
+}
+```
+
+Now every animation defaults to 1 second unless overridden.
+
+## How it works
+
+Glaze creates a timeline for each element internally, even if you don't explicitly use `tl`. This means `tl` defaults effectively apply to everything - useful for setting up global ScrollTrigger behavior or easing.
+
+You can always override defaults on individual elements:
+
+```html
+<!-- Uses the default 1s duration -->
+<div data-animate="from:opacity-0"></div>
+
+<!-- Overrides to 0.5s -->
+<div data-animate="from:opacity-0|duration-0.5"></div>
+```

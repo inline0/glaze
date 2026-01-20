@@ -1,20 +1,18 @@
 ---
 title: Introduction
+description: Utility-based animations for the web
 ---
 
 import { Example } from "../../components/example";
 
 # Introduction
 
-Glaze is an animation framework that combines the power of
-[GSAP](https://greensock.com/gsap/) and utility-based document authoring à la
-[Tailwind](https://tailwindcss.com) to create a simple, yet powerful, way to
-compose animations for the web.
+Glaze brings the Tailwind approach to animations. Instead of writing JavaScript animation code, you describe animations right in your HTML using data attributes.
 
-```html copy
+```html
 <div
-  class="h-20 w-20 rounded-xl bg-amber-500 sm:invisible"
-  data-animate="@sm:from:duration-1|autoAlpha-0|rotate-180|y-50|ease-power2.inOut"
+  class="h-20 w-20 rounded-xl bg-amber-500"
+  data-animate="from:opacity-0|rotate-180|duration-1|ease-power2.inOut"
 ></div>
 ```
 
@@ -27,33 +25,37 @@ data-animate="@sm:from:duration-1|autoAlpha-0|rotate-180|y-50|ease-power2.inOut|
 `}
 </Example>
 
-## Features
+That's it. No JavaScript animation code, just a string that describes what you want.
 
-- **Breakpoints** Define custom breakpoints and animate elements at different
-  screen sizes using `@{size}` syntax. Uses GSAPs
-  [matchMedia](<https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/>).
-- **Timelines** Compose timelines using `@tl`.
-- **Dot notation** Use dot notation to control nested properties inside the
-  animation object, e.g. `to:scale-1.5|scrollTrigger.trigger-[&]`.
-- **Lightweight** ~3kb minified and gzipped.
-- **Library agnostic** Can be extended to work with other animation libraries.
-  (coming soon)
+## What you get
 
-## Credits
+- **Responsive animations** - Use `@sm:`, `@lg:` etc. to animate differently on different screen sizes
+- **Timeline support** - Chain animations together with `tl`
+- **All of GSAP** - ScrollTrigger, easing, stagger, and everything else GSAP offers
+- **Tiny footprint** - ~3kb minified and gzipped
 
-The API and syntax of Glaze is heavily inspired by
-[Tailwind](https://tailwindcss.com) and [MasterCSS](https://css.master.co/).
+## How it works
 
-## Licensing and Requirements
+Glaze parses your `data-animate` strings and converts them into GSAP animations. The syntax mirrors GSAP's API, so if you know GSAP, you already know most of Glaze.
 
-Glaze is designed to work seamlessly with [GSAP](https://greensock.com/gsap/).
-To use Glaze, you must include GSAP in your project.
+```html
+<!-- This Glaze string... -->
+<div data-animate="from:opacity-0|y-50|duration-1"></div>
 
-### GSAP Licensing
+<!-- ...becomes this GSAP call -->
+gsap.from(element, { opacity: 0, y: 50, duration: 1 })
+```
 
-GSAP is subject to its own licensing terms. Before incorporating GSAP with
-Glaze, ensure you review and comply with the
-[GSAP Standard License](https://gsap.com/community/standard-license/).
+## Why Glaze?
 
-Glaze itself is licensed under the MIT License. For more details, see the
-LICENSE file in the repository.
+Writing animations in JavaScript gets messy fast. You end up with animation code scattered across files, disconnected from the elements it animates.
+
+Glaze keeps animations next to the elements they affect. You can see exactly what an element does just by looking at its HTML.
+
+## GSAP required
+
+Glaze is a syntax layer on top of [GSAP](https://greensock.com/gsap/). You need to include GSAP in your project and pass it to Glaze during setup.
+
+GSAP has its own [licensing terms](https://gsap.com/community/standard-license/) - make sure you're compliant before using it commercially.
+
+Glaze itself is MIT licensed.

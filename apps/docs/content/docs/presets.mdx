@@ -1,19 +1,24 @@
 ---
 title: Presets
+description: Reusable animation presets
 ---
 
 import { Example } from "../../components/example";
 
 # Presets
 
-You can create presets for your animations by using the `defaults` object. This
-is useful when you want to apply the same settings to multiple animations.
+Create named presets for animations you use often.
 
 ## Setup
 
-```js copy
+Define presets in your config:
+
+```js
 glaze({
+  lib: { gsap: { core: gsap } },
   presets: {
+    fadeIn: "from:opacity-0|duration-1",
+    slideUp: "from:y-50|opacity-0|duration-0.5",
     helicopter: "from:rotate-2160|duration-5",
   },
 });
@@ -21,11 +26,12 @@ glaze({
 
 ## Usage
 
-```html copy
-<div
-  class="h-20 w-20 rounded-xl bg-amber-500"
-  data-animate="preset-helicopter"
-></div>
+Reference presets with `preset-`:
+
+```html
+<div data-animate="preset-fadeIn"></div>
+<div data-animate="preset-slideUp"></div>
+<div data-animate="preset-helicopter"></div>
 ```
 
 <Example>
@@ -37,8 +43,20 @@ glaze({
 `}
 </Example>
 
-Or when using classes:
+## With classes
 
-```html copy
+If you're using class-based syntax:
+
+```html
 <div class="animate-preset-helicopter h-20 w-20 rounded-xl bg-amber-500"></div>
 ```
+
+## Combining presets
+
+You can use presets alongside other animation strings:
+
+```html
+<div data-animate="preset-fadeIn scrollTrigger.trigger-[&]"></div>
+```
+
+Presets are just shortcuts - they expand into the full animation string before Glaze processes them.

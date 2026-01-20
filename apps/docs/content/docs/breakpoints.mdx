@@ -1,44 +1,40 @@
 ---
 title: Breakpoints
+description: Responsive animations with media queries
 ---
 
 import { Example } from "../../components/example";
 
 # Breakpoints
 
-Glaze features a deep integration with GSAPs
-[matchMedia](<https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/>) functionality,
-which allows you to define breakpoints and create responsive animations.
+Glaze uses GSAP's [matchMedia](https://gsap.com/docs/v3/GSAP/gsap.matchMedia()/) under the hood, so your animations can respond to screen size changes.
 
 ## Setup
 
-To use breakpoints, you need to define them inside the configuration object.
+Define your breakpoints in the config:
 
 ```js
-import glaze from "glazejs";
-
 glaze({
   lib: { gsap: { core: gsap } },
   breakpoints: {
-    default: "(min-width: 640px)",
+    default: "(min-width: 1px)",
+    sm: "(min-width: 640px)",
     md: "(min-width: 768px)",
     lg: "(min-width: 1024px)",
   },
 });
 ```
 
-The `default` breakpoint will be used if no other breakpoint is defined. In the
-example above, all animations will be applied from `640px` and up. If no default
-is defined, `(min-width: 1px)` will be used.
+The `default` breakpoint runs when no other breakpoint is specified. If you don't set one, it defaults to `(min-width: 1px)`.
 
 ## Usage
 
-Breakpoints are defined at the start of the animation string.
+Add `@breakpoint:` before your animation:
 
-```html copy
+```html
 <div
-  class="h-20 w-20 rounded-xl bg-lime-500 lg:invisible"
-  data-animate="@lg:from:duration-1|autoAlpha-0|rotate-180|xPercent-[-100]|ease-power2.inOut"
+  class="h-20 w-20 rounded-xl bg-lime-500"
+  data-animate="@lg:from:opacity-0|rotate-180|duration-1"
 ></div>
 ```
 
@@ -51,16 +47,19 @@ Breakpoints are defined at the start of the animation string.
 `}
 </Example>
 
-This will animate all the set properties when the screen width is 640px or more.
+This animation only runs on `lg` screens (1024px+).
 
-You can also define multiple breakpoints:
+## Multiple breakpoints
 
-```html copy
+Stack multiple breakpoints by separating them with spaces:
+
+```html
 <div
-  class="h-20 w-20 rounded-xl bg-lime-500 sm:invisible"
-  data-animate="@sm:from:duration-1|autoAlpha-0|rotate-360|xPercent-[-100]|ease-power2.inOut @lg:from:background-[red]"
+  data-animate="@sm:from:opacity-0|y-50 @lg:from:scale-0.5"
 ></div>
 ```
+
+On small screens, it fades in from below. On large screens, it also scales up.
 
 <Example>
   {`
@@ -71,6 +70,4 @@ You can also define multiple breakpoints:
 `}
 </Example>
 
-In this example, the animation will be applied when the screen width is `768px`
-or more. If the screen width is `1024px` or more, the background color will
-change in addition to the other animations.
+The animations combine - larger breakpoints add to (or override) smaller ones.

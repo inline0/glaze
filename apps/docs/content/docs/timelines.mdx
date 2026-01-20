@@ -1,42 +1,45 @@
 ---
 title: Timelines
+description: Chain animations together
 ---
 
 import { Example } from "../../components/example";
 
 # Timelines
 
-[Timelines](https://gsap.com/docs/v3/GSAP/Timeline) are fully supported in
-Glaze.
+GSAP [Timelines](https://gsap.com/docs/v3/GSAP/Timeline) let you chain animations together. Glaze supports them with the `tl` keyword.
 
-## Usage
+## Basic timeline
 
-Start with the `tl` keyword inside the data attribute to establish a timeline.
-Glaze then treats the following strings as configuration options for this
-timeline.
+Add `tl` to create a timeline container:
 
-```html copy
-<div data-animate="tl defaults:ease-elastic|duration-1 yoyo-true">...</div>
+```html
+<div data-animate="tl defaults:ease-elastic|duration-1">
+  <div data-animate="to:rotate-360"></div>
+  <div data-animate="to:rotate-360"></div>
+</div>
 ```
 
-This example initiates a timeline with specified default `easing`, `duration`,
-and `yoyo` properties.
+All children automatically join the parent's timeline.
 
-## Elements
+## Timeline defaults
 
-By design, Glaze incorporates all child elements of a timeline-declared element
-into the timeline's scope, eliminating the need for explicit inclusion.
+Set defaults for the whole timeline:
 
-```html copy
-<div class="grid gap-8" data-animate="tl defaults:ease-elastic|duration-4">
-  <div
-    class="h-20 w-20 rounded-xl bg-amber-500"
-    data-animate="to:rotate-360"
-  ></div>
-  <div
-    class="h-20 w-20 rounded-xl bg-green-500"
-    data-animate="tl:[-=3] to:rotate-360"
-  ></div>
+```html
+<div data-animate="tl defaults:ease-elastic|duration-4 yoyo-true">
+  ...
+</div>
+```
+
+## Timing control
+
+Adjust when child animations start using `tl:`:
+
+```html
+<div data-animate="tl defaults:ease-elastic|duration-4">
+  <div data-animate="to:rotate-360"></div>
+  <div data-animate="tl:[-=3] to:rotate-360"></div>
 </div>
 ```
 
@@ -55,25 +58,21 @@ into the timeline's scope, eliminating the need for explicit inclusion.
 `}
 </Example>
 
-Adjust timing for individual elements using the `tl:` prefix to delay or advance
-their animation start times within the timeline.
+`tl:[-=3]` means "start 3 seconds before the previous animation ends" (overlap).
+
+Common timing values:
+- `tl:[+=1]` - Start 1 second after previous ends
+- `tl:[-=1]` - Start 1 second before previous ends (overlap)
+- `tl:[<]` - Start at same time as previous
 
 ## Responsive timelines
 
-Leverage media queries to control timeline execution. The example below
-demonstrates a timeline that activates at the `lg` breakpoint and adjusts
-individual element animations responsively.
+Combine breakpoints with timelines:
 
-```html copy
-<div class="grid gap-8" data-animate="tl defaults:power2.inOut|duration-2">
-  <div
-    class="h-20 w-20 rounded-xl bg-amber-500"
-    data-animate="to:rotate-360 @lg:to:xPercent-[50]"
-  ></div>
-  <div
-    class="h-20 w-20 rounded-xl bg-green-500"
-    data-animate="tl:[-=1] to:rotate-360 @lg:to:xPercent-[-50]"
-  ></div>
+```html
+<div data-animate="tl defaults:power2.inOut|duration-2">
+  <div data-animate="to:rotate-360 @lg:to:xPercent-[50]"></div>
+  <div data-animate="tl:[-=1] to:rotate-360 @lg:to:xPercent-[-50]"></div>
 </div>
 ```
 
@@ -92,39 +91,20 @@ individual element animations responsively.
 `}
 </Example>
 
-This approach ensures the timeline and its component animations adapt to varying
-screen sizes.
+The rotation always happens, but the horizontal movement only kicks in on large screens.
 
-## Hooking into a timeline
+## Named timelines
 
-Assign a name to your timeline to link animations from external elements,
-thereby extending the timeline's scope beyond its original container.
+Give your timeline a name to reference it from anywhere:
 
-In the example below, the named timeline (`main`) allows for animations defined
-on other elements to join the timeline using the `tl:{name}` syntax.
+```html
+<div data-animate="tl/main defaults:power2.inOut|duration-2">
+  <div data-animate="to:rotate-360"></div>
+</div>
 
-```html copy
-<div class="grid w-full grid-cols-2 justify-items-center">
-  <div
-    class="grid gap-8"
-    data-animate="tl/main defaults:power2.inOut|duration-2"
-  >
-    <div
-      class="h-20 w-20 rounded-xl bg-amber-500"
-      data-animate="to:rotate-360"
-    ></div>
-    <div
-      class="h-20 w-20 rounded-xl bg-green-500"
-      data-animate="tl:[-=1] to:rotate-360"
-    ></div>
-  </div>
-  <div
-    class="tl grid gap-8"
-    data-animate="tl:main-[-=1] [&>div]:to:rotate-360|stagger-0.25"
-  >
-    <div class="h-20 w-20 rounded-xl bg-rose-500"></div>
-    <div class="h-20 w-20 rounded-xl bg-red-500"></div>
-  </div>
+<!-- Somewhere else in the DOM -->
+<div data-animate="tl:main-[-=1] to:scale-1.5">
+  ...
 </div>
 ```
 
@@ -154,3 +134,5 @@ on other elements to join the timeline using the `tl:{name}` syntax.
 </div>
 `}
 </Example>
+
+Use `tl/name` to create a named timeline, and `tl:name` to join it.

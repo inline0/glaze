@@ -1,33 +1,44 @@
 ---
 title: Selectors
+description: Target elements with data attributes or classes
 ---
 
 # Selectors
 
-By default, Glaze will search for elements with the `data-animate` attribute and
-build the animation based on the value of the attribute. It is possible to
-change the attribute during the initialization of the library.
+By default, Glaze looks for elements with `data-animate` attributes. You can change this behavior.
 
-```js copy
+## Custom attribute
+
+Use a different data attribute:
+
+```js
 glaze({
+  lib: { gsap: { core: gsap } },
   dataAttribute: "data-move",
 });
 ```
 
-## Classname
+Now Glaze will look for `data-move` instead of `data-animate`:
 
-Alternatively, it is also possible to search for elements with a specific class
-prefix. This is disabled by default.
+```html
+<div data-move="from:opacity-0"></div>
+```
 
-```js copy
+## Class-based syntax
+
+Prefer classes over data attributes? Enable class mode:
+
+```js
 glaze({
+  lib: { gsap: { core: gsap } },
   className: "animate",
 });
 ```
 
-Now Glaze will search for elements with the `animate-` class and build the
-animation based on the value of those classes.
+Now you can write animations as classes:
 
-```html copy
-<div data-animate="animate-from:opacity-0"></div>
+```html
+<div class="animate-from:opacity-0|duration-1"></div>
 ```
+
+This works well if you're already using utility-first CSS and want your animations to feel similar.

@@ -22,6 +22,6 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "onedocs": "^0.1.8"
+    "onedocs": "0.1.18"
   }
 }

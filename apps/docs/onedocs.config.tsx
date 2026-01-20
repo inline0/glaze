@@ -78,13 +78,13 @@ export default defineConfig({
       {
         title: "Composable",
         description:
-          "Layer presets and overrides without fighting configs.",
+          "Layer presets and overrides without fighting configs. Mix and match animation tokens to build complex sequences.",
         icon: <Layers className={iconClass} />,
       },
       {
         title: "Lightweight",
         description:
-          "Tiny runtime footprint with minimal overhead.",
+          "Tiny runtime footprint with minimal overhead. No bloat, just the animation logic you need.",
         icon: <Feather className={iconClass} />,
       },
       {

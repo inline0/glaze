@@ -14,7 +14,7 @@ const LetterSplitter = ({ text }: { text: string }) => {
         key={wordIndex}
         className="relative inline-block overflow-hidden pb-1.5"
       >
-        <span className="inline-block translate-y-[calc(100%+3px)]">
+        <span className="inline-block translate-y-full">
           {word}
         </span>
         {wordIndex < arr.length - 1 ? <span>&nbsp;</span> : ""}
@@ -39,10 +39,10 @@ const Hero = ({ children }: HeroProps) => {
   return (
     <div ref={ref} className="grid gap-4">
       <h1
-        data-animate="[&>span>span]:to:y-0|stagger-0.05|ease-power2.inOut"
+        data-animate="[&>span>span]:to:y-0|stagger-0.05|ease-power2.inOut|delay-0.25"
         className="max-w-xs text-5xl font-medium md:max-w-sm"
       >
-        <LetterSplitter text="Utility-based animations for the web." />
+        <LetterSplitter text="Utility-based animations for the web" />
       </h1>
       <div className="flex flex-wrap items-start sm:items-end gap-x-8 gap-y-4">
         {children}

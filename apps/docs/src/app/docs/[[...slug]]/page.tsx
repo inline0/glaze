@@ -11,7 +11,7 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
 
-  const filePath = page.file.path;
+  const filePath = page.path;
 
   return (
     <DocsPage

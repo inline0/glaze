@@ -19,7 +19,7 @@
         "fumadocs-core": "^16.4.7",
         "fumadocs-mdx": "^14.2.6",
         "fumadocs-ui": "^16.4.7",
-        "glazejs": "workspace:*",
+        "glazejs": "^2.0.1",
         "gsap": "^3.12.5",
         "lucide-react": "^0.562.0",
         "next": "^16.1.4",
@@ -1152,6 +1152,8 @@
     "zod": ["zod@3.25.76", "", {}, "sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ=="],
 
     "zwitch": ["zwitch@2.0.4", "", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
+
+    "@glaze/docs/glazejs": ["glazejs@2.0.1", "", {}, "sha512-orgDy9Skrptl7+SENjRG6WY23mRsrCW+8X1z6GSaUm0gB4ajOOizDNXh57MvmMEiGa7ebiNRtN+ck2ndPmfu/A=="],
 
     "@glaze/docs/onedocs": ["onedocs@0.1.20", "", { "peerDependencies": { "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "next": "^15.0.0 || ^16.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-akt7CbJNxc7muZ5dDp9Mu/1djCy8CMjuLKncvR3s2tLYUi6bo92nFzVT7KfH4j/eNvW+82hp5p7UZ3GJFimzPQ=="],
 

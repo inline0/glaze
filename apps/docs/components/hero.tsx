@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import glaze from "glazejs";
 import gsap from "gsap";
-import { InstallBlock, Button } from "onedocs";
+import { InstallBlock, Button, type HighlightedInstallCommands } from "onedocs";
 
 const LetterSplitter = ({ text }: { text: string }) => {
   return text
@@ -19,7 +19,11 @@ const LetterSplitter = ({ text }: { text: string }) => {
     ));
 };
 
-const Hero = () => {
+interface HeroProps {
+  installCommands?: HighlightedInstallCommands;
+}
+
+const Hero = ({ installCommands }: HeroProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -38,9 +42,11 @@ const Hero = () => {
         <LetterSplitter text="Utility-based animations for the web." />
       </h1>
       <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4">
-        <div className="flex-1">
-          <InstallBlock packageName="glazejs" />
-        </div>
+        {installCommands && (
+          <div className="flex-1">
+            <InstallBlock commands={installCommands} />
+          </div>
+        )}
         <Button href="/docs">Go to docs</Button>
       </div>
     </div>

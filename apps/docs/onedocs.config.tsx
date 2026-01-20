@@ -28,7 +28,7 @@ export default defineConfig({
   },
   homepage: {
     hero: {
-      left: <Hero />,
+      left: ({ installCommands }) => <Hero installCommands={installCommands} />,
       right: (
         <CodeBlock className="!my-0 !shadow-sm !overflow-hidden">
           <Pre className="!bg-fd-card lg:!p-4 lg:[&_*]:!text-sm">

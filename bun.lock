@@ -27,7 +27,7 @@
         "gsap": "^3.12.5",
         "lucide-react": "^0.562.0",
         "nitro": "npm:nitro-nightly@latest",
-        "onedocs": "0.1.8",
+        "onedocs": "0.1.9",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
         "tailwindcss": "^4.1.18",
@@ -1914,6 +1914,8 @@
     "@asamuzakjp/css-color/lru-cache": ["lru-cache@11.2.4", "", {}, "sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg=="],
 
     "@asamuzakjp/dom-selector/lru-cache": ["lru-cache@11.2.4", "", {}, "sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg=="],
+
+    "@glaze/docs/onedocs": ["onedocs@0.1.9", "", { "peerDependencies": { "@tanstack/react-router": "^1.0.0", "@tanstack/start": "^1.0.0", "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-UX38S9cVV/aIfvbpVJwy+C3eah6Y5wv5ijAPfQYq2EVQqqK1euX3Ebz+n4PXKjLQVPpoY+fCqENXKYHgquuk9A=="],
 
     "@mapbox/node-pre-gyp/semver": ["semver@7.7.3", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-SdsKMrI9TdgjdweUSR9MweHA4EJ8YxHn8DFaDisvhVlUOe4BF1tLD7GAj0lIqWVl+dPb/rExr0Btby5loQm20Q=="],
 

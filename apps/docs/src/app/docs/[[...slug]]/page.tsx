@@ -11,8 +11,18 @@ export default async function Page(props: {
 
   const MDX = page.data.body;
 
+  const filePath = page.file.path;
+
   return (
-    <DocsPage toc={page.data.toc}>
+    <DocsPage
+      toc={page.data.toc}
+      editOnGithub={{
+        owner: "inline0",
+        repo: "glaze",
+        sha: "main",
+        path: filePath,
+      }}
+    >
       <MDX components={mdxComponents} />
     </DocsPage>
   );
@@ -29,8 +39,23 @@ export async function generateMetadata(props: {
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const ogImageUrl = params.slug
+    ? `/docs/og/${params.slug.join("/")}`
+    : "/docs/opengraph-image";
+
   return {
     title: page.data.title,
     description: page.data.description,
+    openGraph: {
+      title: page.data.title,
+      description: page.data.description,
+      images: [ogImageUrl],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.data.title,
+      description: page.data.description,
+      images: [ogImageUrl],
+    },
   };
 }

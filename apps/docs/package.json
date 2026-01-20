@@ -12,7 +12,7 @@
     "fumadocs-core": "^16.4.7",
     "fumadocs-mdx": "^14.2.6",
     "fumadocs-ui": "^16.4.7",
-    "glazejs": "^2.0.1",
+    "glazejs": "workspace:*",
     "gsap": "^3.12.5",
     "lucide-react": "^0.562.0",
     "next": "^16.1.4",

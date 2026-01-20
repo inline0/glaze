@@ -27,7 +27,7 @@
         "gsap": "^3.12.5",
         "lucide-react": "^0.562.0",
         "nitro": "npm:nitro-nightly@latest",
-        "onedocs": "0.1.10",
+        "onedocs": "0.1.11",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
         "tailwindcss": "^4.1.18",
@@ -1479,7 +1479,7 @@
 
     "on-finished": ["on-finished@2.4.1", "", { "dependencies": { "ee-first": "1.1.1" } }, "sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg=="],
 
-    "onedocs": ["onedocs@0.1.10", "", { "peerDependencies": { "@tanstack/react-router": "^1.0.0", "@tanstack/start": "^1.0.0", "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-rBP7kyhBaTUxHj3M0zCezR+0iRxmNKKgav+Q47rn0AVErgxviuazal2U7gsiMqfJ4gTgyUIYJk2CptxzU3kZiQ=="],
+    "onedocs": ["onedocs@0.1.11", "", { "peerDependencies": { "@tanstack/react-router": "^1.0.0", "@tanstack/start": "^1.0.0", "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-9g33+SJP8/8aZfKU+mSTt3rvQBU7/2UYG/iTsdfugHT0efacawzqe9V1iibYIbkSilDnb+0bAn+OOqg3oI169w=="],
 
     "onetime": ["onetime@6.0.0", "", { "dependencies": { "mimic-fn": "^4.0.0" } }, "sha512-1FlR+gjXK7X+AsAHso35MnyN5KqGwJRi/31ft6x0M194ht7S+rWAvd7PHss9xSKMzE0asv1pyIHaJYq+BbacAQ=="],
 

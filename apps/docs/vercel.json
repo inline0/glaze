@@ -1,6 +1,0 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "bun run build",
-  "outputDirectory": ".output",
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet -- ."
-}

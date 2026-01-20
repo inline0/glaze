@@ -1,6 +1,0 @@
-@import "onedocs/css/preset.css";
-
-@source "./routes/**/*.tsx";
-@source "../content/**/*.mdx";
-@source "../components/**/*.{ts,tsx,mdx}";
-@source "../onedocs.config.tsx";

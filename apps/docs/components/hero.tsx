@@ -1,7 +1,10 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import glaze from "glazejs";
 import gsap from "gsap";
-import { InstallBlock, Button, type HighlightedInstallCommands } from "onedocs";
+import { Button } from "onedocs";
+import type { ReactNode } from "react";
 
 const LetterSplitter = ({ text }: { text: string }) => {
   return text
@@ -20,10 +23,10 @@ const LetterSplitter = ({ text }: { text: string }) => {
 };
 
 interface HeroProps {
-  installCommands?: HighlightedInstallCommands;
+  children?: ReactNode;
 }
 
-const Hero = ({ installCommands }: HeroProps) => {
+const Hero = ({ children }: HeroProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -41,12 +44,8 @@ const Hero = ({ installCommands }: HeroProps) => {
       >
         <LetterSplitter text="Utility-based animations for the web." />
       </h1>
-      <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4">
-        {installCommands && (
-          <div className="flex-1">
-            <InstallBlock commands={installCommands} />
-          </div>
-        )}
+      <div className="flex flex-wrap items-start sm:items-end gap-x-8 gap-y-4">
+        {children}
         <Button href="/docs">Go to docs</Button>
       </div>
     </div>

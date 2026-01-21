@@ -14,7 +14,6 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/glazejs"><img src="https://img.shields.io/npm/v/glazejs.svg" alt="npm version"></a>
-  <a href="https://github.com/inline0/glaze/actions/workflows/ci.yml"><img src="https://github.com/inline0/glaze/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/inline0/glaze/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/glazejs.svg" alt="license"></a>
 </p>
 

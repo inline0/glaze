@@ -3,13 +3,19 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./.github/logo-dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="./.github/logo-light.svg">
-      <img alt="Glaze" src="./.github/logo-light.svg" width="280">
+      <img alt="Glaze" src="./.github/logo-light.svg" height="50">
     </picture>
   </a>
 </p>
 
 <p align="center">
   Utility-first animations for GSAP with a Tailwind-style syntax
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/glazejs"><img src="https://img.shields.io/npm/v/glazejs.svg" alt="npm version"></a>
+  <a href="https://github.com/inline0/glaze/actions/workflows/ci.yml"><img src="https://github.com/inline0/glaze/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/inline0/glaze/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/glazejs.svg" alt="license"></a>
 </p>
 
 ---
@@ -53,20 +59,19 @@ glaze({
 
 ## Documentation
 
-Visit `https://glaze.dev` for full docs and examples.
+For full documentation, visit [glaze.dev](https://glaze.dev).
 
 ## Development
 
 ```bash
 bun install
-bun run dev:docs
+bun run dev
 bun run test
 ```
 
 ## GSAP License
 
-Glaze relies on GSAP. Review the GSAP Standard License before shipping:
-`https://gsap.com/community/standard-license/`
+Glaze relies on GSAP. Review the [GSAP Standard License](https://gsap.com/community/standard-license/) before shipping.
 
 ## License
 

@@ -27,6 +27,11 @@ export default defineConfig({
   nav: {
     github: "inline0/glaze",
   },
+  footer: {
+    links: [
+      { label: "Inline0.com", href: "https://inline0.com" },
+    ],
+  },
   homepage: {
     hero: {
       left: () => (

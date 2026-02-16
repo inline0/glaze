@@ -5,7 +5,7 @@
     "": {
       "name": "glaze-monorepo",
       "dependencies": {
-        "onedocs": "0.1.25",
+        "onedocs": "0.1.26",
       },
       "devDependencies": {
         "@biomejs/biome": "^2.3.11",
@@ -14,7 +14,7 @@
     },
     "apps/docs": {
       "name": "@glaze/docs",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": {
         "@tailwindcss/postcss": "^4.1.18",
         "fumadocs-core": "^16.4.7",
@@ -24,7 +24,7 @@
         "gsap": "^3.12.5",
         "lucide-react": "^0.562.0",
         "next": "^16.1.4",
-        "onedocs": "0.1.25",
+        "onedocs": "0.1.26",
         "react": "^19.2.3",
         "react-dom": "^19.2.3",
         "tailwindcss": "^4.1.18",
@@ -910,7 +910,7 @@
 
     "obug": ["obug@2.1.1", "", {}, "sha512-uTqF9MuPraAQ+IsnPf366RG4cP9RtUi7MLO1N3KEc+wb0a6yKpeL0lmk2IB1jY5KHPAlTc6T/JRdC/YqxHNwkQ=="],
 
-    "onedocs": ["onedocs@0.1.25", "", { "peerDependencies": { "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "next": "^15.0.0 || ^16.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-cxpkg4vqtAPSITsQaeUxdU0rm9BAP/5k3JBvuL0mR5OwZpOPnsZ5jl2o60Wx+6faOL4D2OcBckKMnBF9c1y1tg=="],
+    "onedocs": ["onedocs@0.1.26", "", { "peerDependencies": { "fumadocs-core": "^16.4.7", "fumadocs-mdx": "^14.2.6", "fumadocs-ui": "^16.4.7", "lucide-react": "^0.562.0", "next": "^15.0.0 || ^16.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-pDJ+l2JSB8IRdDPzHCMZrumGaDan/PZ0eguI55hSArrFrhSeR7J9Q1tq0u6QvRrh3KROR4RzgwzdOjNA9oGbSw=="],
 
     "oniguruma-parser": ["oniguruma-parser@0.12.1", "", {}, "sha512-8Unqkvk1RYc6yq2WBYRj4hdnsAxVze8i7iPfQr8e4uSP3tRv0rpZcbGUDvxfQQcdwHt/e9PrMvGCsa8OqG9X3w=="],
 

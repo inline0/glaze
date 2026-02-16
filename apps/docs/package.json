@@ -16,7 +16,7 @@
     "gsap": "^3.12.5",
     "lucide-react": "^0.562.0",
     "next": "^16.1.4",
-    "onedocs": "0.1.25",
+    "onedocs": "0.1.26",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.18"

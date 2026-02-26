@@ -17,6 +17,16 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <FontHead />
+        <script
+          async
+          src="https://plausible.io/js/pa-ojSsvoWfnUpKliI0WlVmp.js"
+        />
+        <script>
+          {`window.plausible=window.plausible||function()
+          {(plausible.q = plausible.q || []).push(arguments)}
+          ,plausible.init=plausible.init||function(i){(plausible.o = i || {})};
+          plausible.init()`}
+        </script>
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <RootProvider>{children}</RootProvider>

@@ -23,7 +23,7 @@ export default defineConfig({
     light: "/logo-light.svg",
     dark: "/logo-dark.svg",
   },
-  icon: "/icon.png",
+  icon: { light: "/icon.png", dark: "/icon-dark.png" },
   nav: {
     github: "inline0/glaze",
   },

@@ -1,6 +1,11 @@
 ---
-title: Defaults
-description: Set global animation defaults
+title: "Defaults"
+description: "Set global animation defaults"
+path: "defaults"
+order: 7
+section: "Usage"
+meta_title: "Defaults"
+meta_description: "Set global animation defaults"
 ---
 
 # Defaults

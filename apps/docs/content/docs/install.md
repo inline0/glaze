@@ -1,13 +1,20 @@
 ---
-title: Install
-description: Get Glaze set up in your project
+title: "Install"
+description: "Get Glaze set up in your project"
+path: "install"
+order: 1
+section: "Getting Started"
+meta_title: "Install"
+meta_description: "Get Glaze set up in your project"
 ---
-
-import { InstallBlock } from "onedocs";
 
 # Install
 
-<InstallBlock packageName="glazejs" />
+
+```bash
+npm install glazejs
+```
+
 
 ## Setup
 

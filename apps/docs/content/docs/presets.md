@@ -1,9 +1,12 @@
 ---
-title: Presets
-description: Reusable animation presets
+title: "Presets"
+description: "Reusable animation presets"
+path: "presets"
+order: 8
+section: "Usage"
+meta_title: "Presets"
+meta_description: "Reusable animation presets"
 ---
-
-import { Example } from "../../components/example";
 
 # Presets
 
@@ -34,14 +37,14 @@ Reference presets with `preset-`:
 <div data-animate="preset-helicopter"></div>
 ```
 
-<Example>
-  {`
-  <div
+
+```html preview
+<div
     class="h-20 w-20 rounded-xl bg-amber-500"
     data-animate="preset-helicopter"
   ></div>
-`}
-</Example>
+```
+
 
 ## With classes
 

@@ -1,9 +1,12 @@
 ---
-title: Breakpoints
-description: Responsive animations with media queries
+title: "Breakpoints"
+description: "Responsive animations with media queries"
+path: "breakpoints"
+order: 4
+section: "Usage"
+meta_title: "Breakpoints"
+meta_description: "Responsive animations with media queries"
 ---
-
-import { Example } from "../../components/example";
 
 # Breakpoints
 
@@ -38,14 +41,14 @@ Add `@breakpoint:` before your animation:
 ></div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div
   class="h-20 w-20 rounded-xl bg-lime-500 lg:invisible"
   data-animate="@lg:from:duration-1|autoAlpha-0|rotate-360|xPercent-[-100]|ease-power2.inOut|scrollTrigger.trigger-[&]"
 ></div>
-`}
-</Example>
+```
+
 
 This animation only runs on `lg` screens (1024px+).
 
@@ -61,13 +64,13 @@ Stack multiple breakpoints by separating them with spaces:
 
 On small screens, it fades in from below. On large screens, it also scales up.
 
-<Example>
-  {`
+
+```html preview
 <div
   class="h-20 w-20 rounded-xl bg-orange-500 lg:invisible"
   data-animate="@sm:from:duration-1|autoAlpha-0|rotate-360|xPercent-[-100]|ease-power2.inOut|scrollTrigger.trigger-[&] @lg:from:background-[red]"
 ></div>
-`}
-</Example>
+```
+
 
 The animations combine - larger breakpoints add to (or override) smaller ones.

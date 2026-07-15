@@ -1,6 +1,11 @@
 ---
-title: Selectors
-description: Target elements with data attributes or classes
+title: "Selectors"
+description: "Target elements with data attributes or classes"
+path: "selectors"
+order: 3
+section: "Usage"
+meta_title: "Selectors"
+meta_description: "Target elements with data attributes or classes"
 ---
 
 # Selectors

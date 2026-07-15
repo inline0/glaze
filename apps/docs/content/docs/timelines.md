@@ -1,9 +1,12 @@
 ---
-title: Timelines
-description: Chain animations together
+title: "Timelines"
+description: "Chain animations together"
+path: "timelines"
+order: 5
+section: "Usage"
+meta_title: "Timelines"
+meta_description: "Chain animations together"
 ---
-
-import { Example } from "../../components/example";
 
 # Timelines
 
@@ -43,8 +46,8 @@ Adjust when child animations start using `tl:`:
 </div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div class="grid gap-8" data-animate="tl defaults:ease-elastic|duration-4 scrollTrigger:trigger-[&]">
   <div
     class="h-20 w-20 rounded-xl bg-amber-500"
@@ -55,8 +58,8 @@ Adjust when child animations start using `tl:`:
     data-animate="tl:[-=3] to:rotate-360"
   ></div>
 </div>
-`}
-</Example>
+```
+
 
 `tl:[-=3]` means "start 3 seconds before the previous animation ends" (overlap).
 
@@ -76,8 +79,8 @@ Combine breakpoints with timelines:
 </div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div class="grid gap-8" data-animate="tl defaults:power2.inOut|duration-2 scrollTrigger:trigger-[&]">
   <div
     class="h-20 w-20 rounded-xl bg-amber-500"
@@ -88,8 +91,8 @@ Combine breakpoints with timelines:
     data-animate="tl:[-=1] to:rotate-360 @lg:to:xPercent-[-100]"
   ></div>
 </div>
-`}
-</Example>
+```
+
 
 The rotation always happens, but the horizontal movement only kicks in on large screens.
 
@@ -108,8 +111,8 @@ Give your timeline a name to reference it from anywhere:
 </div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div class="grid w-full grid-cols-2 justify-items-center">
   <div
     class="grid gap-8"
@@ -132,7 +135,7 @@ Give your timeline a name to reference it from anywhere:
     <div class="h-20 w-20 rounded-xl bg-red-500"></div>
   </div>
 </div>
-`}
-</Example>
+```
+
 
 Use `tl/name` to create a named timeline, and `tl:name` to join it.

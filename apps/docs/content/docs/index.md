@@ -1,9 +1,12 @@
 ---
-title: Introduction
-description: Utility-based animations for the web
+title: "Introduction"
+description: "Utility-based animations for the web"
+path: "."
+order: 0
+section: "Getting Started"
+meta_title: "Introduction"
+meta_description: "Utility-based animations for the web"
 ---
-
-import { Example } from "../../components/example";
 
 # Introduction
 
@@ -16,14 +19,14 @@ Glaze brings the Tailwind approach to animations. Instead of writing JavaScript 
 ></div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div
 class="h-20 w-20 rounded-xl bg-amber-500 sm:invisible"
 data-animate="@sm:from:duration-1|autoAlpha-0|rotate-180|y-50|ease-power2.inOut|scrollTrigger.trigger-[&]">
 </div>
-`}
-</Example>
+```
+
 
 That's it. No JavaScript animation code, just a string that describes what you want.
 

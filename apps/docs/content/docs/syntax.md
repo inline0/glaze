@@ -1,6 +1,11 @@
 ---
-title: Syntax
-description: How to write Glaze animation strings
+title: "Syntax"
+description: "How to write Glaze animation strings"
+path: "syntax"
+order: 2
+section: "Usage"
+meta_title: "Syntax"
+meta_description: "How to write Glaze animation strings"
 ---
 
 # Syntax

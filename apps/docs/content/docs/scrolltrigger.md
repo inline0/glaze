@@ -1,9 +1,12 @@
 ---
-title: ScrollTrigger
-description: Animate on scroll
+title: "ScrollTrigger"
+description: "Animate on scroll"
+path: "scrolltrigger"
+order: 6
+section: "Usage"
+meta_title: "ScrollTrigger"
+meta_description: "Animate on scroll"
 ---
-
-import { Example } from "../../components/example";
 
 # ScrollTrigger
 
@@ -42,16 +45,16 @@ The `[&]` means "use this element as the trigger" (same as the `&` in selectors)
 ></div>
 ```
 
-<Example>
-  {`
+
+```html preview
 <div class="flex h-[50vh] items-center">
   <div
     class="h-20 w-20 rounded-xl bg-amber-500 sm:invisible"
     data-animate="from:autoAlpha-0|rotate-180|y-50|scrollTrigger.trigger-[&]|boxShadow-[0_0_100px_20px_orange]|scrollTrigger.scrub-true|scrollTrigger.start-[top_center]|scrollTrigger.end-[-=200]"
   ></div>
 </div>
-`}
-</Example>
+```
+
 
 <div className="h-screen" />
 

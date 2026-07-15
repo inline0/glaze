@@ -1,5 +1,11 @@
 ---
-title: Changelog
+title: "Changelog"
+description: "Release history for Glaze."
+path: "changelog"
+order: 9
+section: "Usage"
+meta_title: "Changelog"
+meta_description: "Release history for Glaze."
 ---
 
 # Changelog

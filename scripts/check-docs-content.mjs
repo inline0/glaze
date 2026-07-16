@@ -83,10 +83,19 @@ const parseDocument = (file) => {
 
 	const data = {};
 	for (const line of match[1].split('\n')) {
-		const field = line.match(/^([A-Za-z_][A-Za-z0-9_-]*):\s*(.*)$/);
-		if (field) {
-			data[field[1]] = unquote(field[2]);
+		if (line.trim() === '' || line.trimStart().startsWith('#')) {
+			continue;
 		}
+		const field = line.match(/^([A-Za-z_][A-Za-z0-9_-]*):\s*(.*)$/);
+		if (!field) {
+			problems.push(`${normalizePath(relative(root, file))}: malformed frontmatter line ${JSON.stringify(line)}`);
+			continue;
+		}
+		if (field[1] in data) {
+			problems.push(`${normalizePath(relative(root, file))}: duplicate frontmatter field ${field[1]}`);
+			continue;
+		}
+		data[field[1]] = unquote(field[2]);
 	}
 
 	return { source, body: source.slice(match[0].length), data };
@@ -116,7 +125,7 @@ const inspectPortableBody = (file, body) => {
 		if (/^\s*(import|export)\s/.test(visible)) {
 			problems.push(`${normalizePath(relative(root, file))}:${index + 1}: module syntax outside a code fence`);
 		}
-		if (/^\s*<\/?[A-Z][A-Za-z0-9]*(?:\s|>|\/)/.test(visible)) {
+		if (/<\/?[A-Z][A-Za-z0-9]*(?:\s|>|\/)/.test(visible)) {
 			problems.push(`${normalizePath(relative(root, file))}:${index + 1}: executable JSX/MDX component outside a code fence`);
 		}
 	}
@@ -155,13 +164,18 @@ for (const file of markdownFiles) {
 		routeOwners.set(route, fileRelative);
 	}
 
-	const order = Number.parseInt(String(parsed.data.order ?? ''), 10);
-	if (!Number.isInteger(order) || order < 0) {
+	const orderValue = String(parsed.data.order ?? '').trim();
+	const order = Number.parseInt(orderValue, 10);
+	if (!/^(0|[1-9][0-9]*)$/.test(orderValue)) {
 		problems.push(`${fileRelative}: order must be a non-negative integer`);
-	} else if (orderOwners.has(order)) {
-		problems.push(`${fileRelative}: duplicate order ${order} also used by ${orderOwners.get(order)}`);
 	} else {
-		orderOwners.set(order, fileRelative);
+		const section = String(parsed.data.section ?? '').trim();
+		const orderKey = `${section}\0${order}`;
+		if (orderOwners.has(orderKey)) {
+			problems.push(`${fileRelative}: duplicate order ${order} in section ${JSON.stringify(section)} also used by ${orderOwners.get(orderKey)}`);
+		} else {
+			orderOwners.set(orderKey, fileRelative);
+		}
 	}
 
 	inspectPortableBody(file, parsed.body);
@@ -179,8 +193,10 @@ const resolveDocumentEntry = (directory, entry, metaFile) => {
 		referencedDocuments.add(normalizePath(relative(root, markdown)));
 		return;
 	}
+	let resolved = false;
 	if (existsSync(indexMarkdown)) {
 		referencedDocuments.add(normalizePath(relative(root, indexMarkdown)));
+		resolved = true;
 	}
 	if (existsSync(childDirectory) && statSync(childDirectory).isDirectory()) {
 		const childMeta = join(childDirectory, 'meta.json');
@@ -188,6 +204,9 @@ const resolveDocumentEntry = (directory, entry, metaFile) => {
 			validateMeta(childMeta);
 			return;
 		}
+	}
+	if (resolved) {
+		return;
 	}
 	problems.push(`${normalizePath(relative(root, metaFile))}: unresolved navigation entry ${JSON.stringify(entry)}`);
 };

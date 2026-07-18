@@ -2,7 +2,7 @@
 title: "Introduction"
 description: "Utility-based animations for the web"
 path: "."
-order: 0
+order: 10
 section: "Getting Started"
 meta_title: "Introduction"
 meta_description: "Utility-based animations for the web"

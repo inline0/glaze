@@ -2,7 +2,7 @@
 title: "Presets"
 description: "Reusable animation presets"
 path: "presets"
-order: 8
+order: 90
 section: "Usage"
 meta_title: "Presets"
 meta_description: "Reusable animation presets"

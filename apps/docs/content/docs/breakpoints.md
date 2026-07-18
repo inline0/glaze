@@ -2,7 +2,7 @@
 title: "Breakpoints"
 description: "Responsive animations with media queries"
 path: "breakpoints"
-order: 4
+order: 50
 section: "Usage"
 meta_title: "Breakpoints"
 meta_description: "Responsive animations with media queries"

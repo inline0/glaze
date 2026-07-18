@@ -261,3 +261,7 @@ Built with Next.js 16 + OneDocs + Fumadocs.
 **Components:** `apps/docs/components/`
 - `hero.tsx` - Landing page hero with GSAP animation
 - `example.tsx` - Interactive animation demos
+
+## Dependency Rule
+
+- Never edit vendor-prefixed, vendored, or generated dependency copies directly. Fix the upstream source first, then rebuild or update the embedded artifact.

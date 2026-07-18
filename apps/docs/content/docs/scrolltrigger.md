@@ -2,7 +2,7 @@
 title: "ScrollTrigger"
 description: "Animate on scroll"
 path: "scrolltrigger"
-order: 6
+order: 70
 section: "Usage"
 meta_title: "ScrollTrigger"
 meta_description: "Animate on scroll"

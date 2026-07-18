@@ -2,7 +2,7 @@
 title: "Install"
 description: "Get Glaze set up in your project"
 path: "install"
-order: 1
+order: 20
 section: "Getting Started"
 meta_title: "Install"
 meta_description: "Get Glaze set up in your project"

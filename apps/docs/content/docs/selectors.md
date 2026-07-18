@@ -2,7 +2,7 @@
 title: "Selectors"
 description: "Target elements with data attributes or classes"
 path: "selectors"
-order: 3
+order: 40
 section: "Usage"
 meta_title: "Selectors"
 meta_description: "Target elements with data attributes or classes"

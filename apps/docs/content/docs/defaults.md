@@ -2,7 +2,7 @@
 title: "Defaults"
 description: "Set global animation defaults"
 path: "defaults"
-order: 7
+order: 80
 section: "Usage"
 meta_title: "Defaults"
 meta_description: "Set global animation defaults"

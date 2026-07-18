@@ -2,8 +2,8 @@
 title: "Changelog"
 description: "Release history for Glaze."
 path: "changelog"
-order: 9
-section: "Usage"
+order: 100
+section: "Reference"
 meta_title: "Changelog"
 meta_description: "Release history for Glaze."
 ---

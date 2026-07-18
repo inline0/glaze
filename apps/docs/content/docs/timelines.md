@@ -2,7 +2,7 @@
 title: "Timelines"
 description: "Chain animations together"
 path: "timelines"
-order: 5
+order: 60
 section: "Usage"
 meta_title: "Timelines"
 meta_description: "Chain animations together"

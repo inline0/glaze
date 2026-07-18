@@ -13,10 +13,7 @@ const cwd = process.cwd();
 const configuredRoot = option('--root');
 const root = configuredRoot
 	? resolve(cwd, configuredRoot)
-	: [
-		resolve(cwd, 'apps/docs/content/docs'),
-		resolve(cwd, 'docs/content/docs'),
-	].find((candidate) => existsSync(candidate));
+	: resolve(cwd, 'docs');
 const expectedDocs = Number.parseInt(option('--expected-docs', '0'), 10) || 0;
 const expectedNav = Number.parseInt(option('--expected-nav', '0'), 10) || 0;
 

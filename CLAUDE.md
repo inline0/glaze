@@ -30,14 +30,12 @@ glaze/
 │   │   └── postbuild.js    # Minification + file copying
 │   ├── vite.config.ts
 │   └── vitest.config.unit.ts
-├── apps/docs/              # Documentation site (Next.js + OneDocs)
-│   ├── src/app/            # Next.js App Router
-│   ├── content/docs/       # MDX documentation (11 files)
-│   ├── components/         # Hero, example components
-│   └── onedocs.config.tsx
+├── docs/                   # Portable Markdown documentation (10 files + meta.json)
+├── scripts/
+│   └── check-docs-content.mjs  # Docs content validator
 ├── package.json            # Workspace root
 ├── biome.json              # Linting config
-└── .github/                # Logo assets
+└── .github/                # Logo assets, workflows
 ```
 
 ---
@@ -168,12 +166,10 @@ glaze({
 
 ```bash
 # Development
-bun run dev              # Docs site on port 4000
-bun run dev:docs         # Same as above
+bun run dev              # Core Vite dev server
 
 # Building
-bun run build            # Build core + docs
-bun run build:docs       # Build docs only
+bun run build            # Build core
 
 # Testing
 bun run test             # All tests (unit + e2e)
@@ -205,7 +201,6 @@ bun run test:unit-watch  # Vitest watch mode
 4. Postbuild:
    - Terser minification
    - Copy README.md to package
-   - Copy CHANGELOG.md to docs
 
 **Output:** Single ES module with TypeScript definitions
 
@@ -249,18 +244,17 @@ bun run test:unit-watch  # Vitest watch mode
 
 ---
 
-## Docs Site
+## Documentation
 
-Built with Next.js 16 + OneDocs + Fumadocs.
+Portable Markdown lives in `docs/` at the repo root.
 
-**Content:** `apps/docs/content/docs/`
-- index.mdx, install.mdx, syntax.mdx, timelines.mdx
-- breakpoints.mdx, scrolltrigger.mdx, selectors.mdx
-- defaults.mdx, presets.mdx, changelog.mdx
+**Content:** `docs/`
+- index.md, install.md, syntax.md, timelines.md
+- breakpoints.md, scrolltrigger.md, selectors.md
+- defaults.md, presets.md, changelog.md
+- meta.json defines navigation order
 
-**Components:** `apps/docs/components/`
-- `hero.tsx` - Landing page hero with GSAP animation
-- `example.tsx` - Interactive animation demos
+Validate with `node scripts/check-docs-content.mjs --root docs --expected-docs 10 --expected-nav 1`.
 
 ## Dependency Rule
 

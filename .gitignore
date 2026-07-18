@@ -9,9 +9,4 @@
 # intellij
 .idea/
 
-.next
-.turbo
-.output
-.source
-.tanstack
 test-results

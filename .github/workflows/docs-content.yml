@@ -5,12 +5,12 @@ on:
     branches:
       - 'docs/**'
     paths:
-      - 'apps/docs/content/docs/**'
+      - 'docs/**'
       - 'scripts/check-docs-content.mjs'
       - '.github/workflows/docs-content.yml'
   pull_request:
     paths:
-      - 'apps/docs/content/docs/**'
+      - 'docs/**'
       - 'scripts/check-docs-content.mjs'
       - '.github/workflows/docs-content.yml'
 
@@ -26,4 +26,4 @@ jobs:
         with:
           node-version: 22
       - name: Check portable documentation
-        run: node scripts/check-docs-content.mjs --root apps/docs/content/docs --expected-docs 10 --expected-nav 1
+        run: node scripts/check-docs-content.mjs --root docs --expected-docs 10 --expected-nav 1

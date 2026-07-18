@@ -1,16 +1,13 @@
 ---
-title: "Install"
+title: "Getting Started"
 description: "Get Glaze set up in your project"
 path: "install"
 order: 20
-section: "Getting Started"
-meta_title: "Install"
+meta_title: "Getting Started"
 meta_description: "Get Glaze set up in your project"
 ---
 
-# Install
-
-
+# Getting Started
 ```bash
 npm install glazejs
 ```

@@ -139,7 +139,6 @@ const requiredFields = [
 	'description',
 	'path',
 	'order',
-	'section',
 	'meta_title',
 	'meta_description',
 ];

@@ -18,7 +18,11 @@ guides. Keep the guidance here and do not add forwarding aliases.
   Keep exported API doc comments complete. The copied doc rules retain their
   provenance in `scripts/oxlint-plugins/README.md`.
 - Keep runtime behavior in its owning package and tooling under `scripts/`.
-  Repository tooling runs as TypeScript with plain Node. Do not add editor files.
+  Repository tooling runs as TypeScript with plain Node. Use Effect 4.0.5 and
+  the local CLI/runtime/Command services for orchestration and external calls.
+  Keep subprocess groups and temporary files scoped; substitute services in
+  tooling tests. Preserve CLI usage failures and JSON/dry-run behavior.
+  Do not add editor files.
 - README package descriptions and commands must match manifests. Portable docs
   live in `docs/`; update examples when semantics change. Edit the root README;
   packaging creates the npm copy with absolute image and documentation links.

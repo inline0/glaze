@@ -23,7 +23,7 @@
     "typecheck": "tsc-rs --noEmit -p tsconfig.json && pnpm -r typecheck",
     "test": "pnpm test:unit && pnpm test:tooling",
     "test:unit": "pnpm --filter glazejs test",
-    "test:tooling": "node --test scripts/*.test.ts scripts/oxlint-plugins/*.test.ts",
+    "test:tooling": "node --test \"scripts/**/*.test.ts\"",
     "test:e2e": "playwright test",
     "audit:workspace": "node scripts/check-workspace.ts",
     "audit:docs": "node scripts/check-docs-content.ts --root docs --expected-docs 11 --expected-nav 1",
@@ -41,6 +41,8 @@
     "oxlint-tsgolint": "catalog:",
     "tsc-rs": "catalog:",
     "typescript": "catalog:",
-    "yaml": "catalog:"
+    "yaml": "catalog:",
+    "effect": "catalog:",
+    "@effect/platform-node": "catalog:"
   }
 }

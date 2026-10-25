@@ -7,6 +7,8 @@ allowBuilds:
   tsc-rs: true
 
 catalog:
+  effect: 4.0.5
+  "@effect/platform-node": 4.0.5
   '@oxlint/plugins': 1.88.0
   '@playwright/test': 1.64.1
   '@types/node': 26.6.5
@@ -27,3 +29,6 @@ catalog:
 shellEmulator: true
 saveExact: true
 strictPeerDependencies: true
+
+overrides:
+  "@effect/platform-node-shared": 4.0.5

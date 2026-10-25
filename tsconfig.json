@@ -1,7 +1,13 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "types": ["node"]
+    "types": ["node"],
+    "erasableSyntaxOnly": true
   },
-  "include": ["scripts/**/*.ts", "oxfmt.config.ts", "playwright.config.ts"]
+  "include": [
+    "scripts/**/*.ts",
+    "oxfmt.config.ts",
+    "playwright.config.ts",
+    "packages/core/scripts/**/*.ts"
+  ]
 }

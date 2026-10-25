@@ -100,6 +100,9 @@ entry points, so applications never depend on unpublished packages.
 ## Development
 
 Use Node from `.nvmrc` and pnpm from `package.json#packageManager`.
+Repository tools run directly as TypeScript through Effect 4 services. They
+support `--help`, `--json`, `--dry-run` and `--log-level`. Subprocesses and
+package-test directories close with their scope, including on interruption.
 
 ```sh
 pnpm run setup

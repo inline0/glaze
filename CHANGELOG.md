@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.1.0] - Unreleased
+## [2.1.0] - 2026-11-07
 
 ### Added
 
@@ -33,6 +33,9 @@
 - Presets expand in place: later utility values override earlier values.
 - Remove obsolete screenshots, generated bundles, Bun/Biome configuration and
   nested lockfiles. The GSAP entry keeps the `dist/index.es.js` compatibility path.
+- The selectors guide explains how elements are found, how attribute and class
+  utilities combine, what the `element` root limits, and how relative and
+  global bracket selectors resolve, including their limits.
 
 ## 2.0.1
 

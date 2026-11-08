@@ -435,15 +435,17 @@ function glaze<Timeline extends AnimationTimeline = AnimationTimeline>(
   /**
    * Check added, removed and reclassified nodes for animation relevance.
    * @param node - The changed DOM node or subtree.
-   * @returns Whether this subtree contains an input or animation target.
+   * @param subtree - Whether descendants of the node count as changed.
+   * @returns Whether the node, or its subtree, holds an input or target.
    */
-  function relevantNode(node: Node) {
+  function relevantNode(node: Node, subtree = true) {
     if (!(node instanceof Element)) return false
     const related = (element: Element) =>
       utilityCache.has(element) ||
       originalStyles.has(element) ||
       isAnimated(element)
-    if (related(node) || Array.from(node.querySelectorAll("*")).some(related))
+    if (related(node)) return true
+    if (subtree && Array.from(node.querySelectorAll("*")).some(related))
       return true
     for (const timeline of timelines)
       for (const [source, variants] of timeline.elements) {
@@ -453,7 +455,8 @@ function glaze<Timeline extends AnimationTimeline = AnimationTimeline>(
           if (
             targets &&
             targetElements(targets).some(
-              (element) => element === node || node.contains(element)
+              (element) =>
+                element === node || (subtree && node.contains(element))
             )
           )
             return true
@@ -490,12 +493,12 @@ function glaze<Timeline extends AnimationTimeline = AnimationTimeline>(
         if (mutation.type === "attributes")
           return (
             mutation.attributeName === state.dataAttribute ||
-            relevantNode(mutation.target) ||
+            relevantNode(mutation.target, false) ||
             relativeSelectorParent(mutation.target)
           )
         const nodes = [...mutation.addedNodes, ...mutation.removedNodes]
         return (
-          nodes.some(relevantNode) ||
+          nodes.some((node) => relevantNode(node)) ||
           (nodes.some((node) => node instanceof Element) &&
             relativeSelectorParent(mutation.target))
         )

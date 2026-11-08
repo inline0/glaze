@@ -1,6 +1,6 @@
 {
   "name": "glazejs",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Declarative animations with GSAP and Motion adapters.",
   "author": "Dennis Josek <hi@dennn.is> (https://dennn.is)",
   "homepage": "https://glaze.dev",

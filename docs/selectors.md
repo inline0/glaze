@@ -120,8 +120,13 @@ The element animates to `x: 100` and `y: 20`.
 
 With `watch` enabled in class mode, Glaze also observes `class` changes. Adding
 an `animate-` class to an element, or changing the classes of an element Glaze
-already reads or animates, schedules a rebuild. Class changes on other elements
-do not.
+already reads or animates, schedules a rebuild. Inside an element with a
+relative selector, class changes on its descendants do too, because they can
+change what the selector matches. Class changes on other elements do not, and
+that includes the ancestors of animated elements, so toggling a dark mode class
+on `<html>` or a scroll lock class on `<body>` leaves running animations alone.
+A class change that makes an element newly match a global selector is not
+noticed either; call `refresh()` after it.
 
 ## Limiting the search
 

@@ -263,6 +263,44 @@ describe("lifecycle", () => {
     expect(created).toHaveLength(3)
   })
 
+  it("does not restart animations for class changes on ancestors", async () => {
+    vi.useFakeTimers()
+    document.body.innerHTML = `<main><section><div class="animate-to:x-10"></div><h2 data-animate="[.badge]:from:opacity-0">Inbox</h2><span class="badge">3</span></section></main>`
+    const { adapter, created } = recordingAdapter()
+    start({ adapter, className: "animate", watch: { debounceTime: 0 } })
+    expect(created).toHaveLength(2)
+    const section = document.querySelector("section")
+    if (!section) throw new Error("Missing fixture")
+    document.documentElement.className = "dark"
+    document.body.className = "scroll-lock"
+    section.className = "open"
+    await Promise.resolve()
+    await vi.advanceTimersByTimeAsync(1)
+    expect(created).toHaveLength(2)
+    document.querySelector(".badge")?.classList.add("new")
+    await Promise.resolve()
+    await vi.advanceTimersByTimeAsync(1)
+    expect(created).toHaveLength(4)
+  })
+
+  it("still rebuilds when an ancestor of animated elements is added or removed", async () => {
+    vi.useFakeTimers()
+    document.body.innerHTML = `<section><div data-animate="to:x-10"></div></section>`
+    const { adapter, created } = recordingAdapter()
+    const instance = start({ adapter, watch: { debounceTime: 0 } })
+    const wrapper = document.createElement("section")
+    wrapper.innerHTML = `<div data-animate="to:x-20"></div>`
+    document.body.append(wrapper)
+    await Promise.resolve()
+    await vi.advanceTimersByTimeAsync(1)
+    expect(instance.timelines).toHaveLength(2)
+    document.querySelector("section")?.remove()
+    await Promise.resolve()
+    await vi.advanceTimersByTimeAsync(1)
+    expect(instance.timelines).toHaveLength(1)
+    expect(created.length).toBeGreaterThan(2)
+  })
+
   it("cleans resources and original styles when initialization fails", () => {
     document.body.innerHTML = `<div style="opacity: 0.8" data-animate="to:x-20"></div>`
     const element = document.body.firstElementChild

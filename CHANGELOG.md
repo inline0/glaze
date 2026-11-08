@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.1] - 2026-11-08
+
+### Fixed
+
+- Watch mode no longer rebuilds every animation when a class changes on an
+  ancestor of animated elements, such as a dark mode class on `<html>` or a
+  scroll lock class on `<body>`. Class changes count only on elements Glaze
+  reads or animates and inside elements with a relative selector, as the
+  selectors guide describes. Adding or removing a subtree that holds animated
+  elements still rebuilds.
+
+### Changed
+
+- The selectors guide says which class changes watch mode notices, including
+  ancestors and elements that newly match a global selector.
+- Earlier changelog entries use the same `## [x.y.z] - date` format with
+  Added, Changed and Fixed sections.
+
 ## [2.1.0] - 2026-11-07
 
 ### Added
@@ -37,67 +55,77 @@
   utilities combine, what the `element` root limits, and how relative and
   global bracket selectors resolve, including their limits.
 
-## 2.0.1
+## [2.0.1] - 2024-06-05
 
-2024-06-05
+### Fixed
 
-- Fix: build package
+- Build package
 
-## 2.0.0
+## [2.0.0] - 2024-06-05
 
-2024-06-05
+### Added
 
-- Breaking: timeline defaults are not applied directly to `defaults` key anymore
-- New: timeline defaults will also be applied to single elements (Glaze creates a new timeline for each element)
+- Timeline defaults are also applied to single elements (Glaze creates a new
+  timeline for each element)
 
-## 1.2.0
+### Changed
 
-2024-04-23
+- Breaking: timeline defaults are not applied directly to the `defaults` key
+  anymore
 
-- New: `presets` option to define presets for animations
-- New: `defaults` option to define default values for timelines and animations
+## [1.2.0] - 2024-04-23
 
-## 1.1.3
+### Added
 
-2024-03-03
+- `presets` option to define presets for animations
+- `defaults` option to define default values for timelines and animations
 
-- Fix: `from` animations flash of initial state #2
+## [1.1.3] - 2024-03-03
 
-## 1.1.2
+### Fixed
 
-2024-03-03
+- `from` animations flash of initial state (#2)
 
-- Fix: `from` animations flash of initial state
+## [1.1.2] - 2024-03-03
 
-## 1.1.1
+### Fixed
 
-2024-02-29
+- `from` animations flash of initial state
 
-- Fix: `watch` option not resetting properly when using `from` animations
+## [1.1.1] - 2024-02-29
 
-## 1.1.0
+### Fixed
 
-2024-02-28
+- `watch` option not resetting properly when using `from` animations
 
-- New: `watch` option to watch changes to animation attributes in DOM, updating animations accordingly
-- New: `className` option to add class prefixes and create animations from classes, e.g. `animate-to:x-500`
-- Fix: element selector returning null when just using `&`
-- Fix: `from` animations not restarting when using breakpoints
+## [1.1.0] - 2024-02-28
 
-## 1.0.2
+### Added
 
-2024-02-10
+- `watch` option to watch changes to animation attributes in DOM, updating
+  animations accordingly
+- `className` option to add class prefixes and create animations from classes,
+  e.g. `animate-to:x-500`
 
-- Enhancement: possibility to use dashes (spaces) in selector
+### Fixed
 
-## 1.0.1
+- Element selector returning null when just using `&`
+- `from` animations not restarting when using breakpoints
 
-2024-02-08
+## [1.0.2] - 2024-02-10
+
+### Changed
+
+- Possibility to use dashes (spaces) in selector
+
+## [1.0.1] - 2024-02-08
+
+### Changed
 
 - Update licensing
 
-## 1.0.0
+## [1.0.0] - 2024-02-08
 
-2024-02-08
+### Added
 
 - Initial release
